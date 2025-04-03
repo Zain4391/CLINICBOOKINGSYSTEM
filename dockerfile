@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 COPY *.sln .
-COPY ClinicBookingSystem/*.csproj ./ClinicBookingSystem/
+COPY *.csproj ./
 RUN dotnet restore
 
 COPY . .
-WORKDIR /app/ClinicBookingSystem
+WORKDIR /app
 RUN dotnet publish -c Release -o out
 
 # Runtime stage
